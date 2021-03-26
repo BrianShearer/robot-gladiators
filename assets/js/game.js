@@ -16,9 +16,13 @@ var enemyAttack = 12;
 // "LOSE" - Player robot's health is zero or lesser
 
 var fight = function(enemyName) {
-    
+    // repeat and execute as long as the enemy-robot is alive 
+  while(enemyHealth > 0) {
+      
+    // place fight function code block here . . .
+  
     // Alert players that they are starting the round
-  window.alert("Welcome to Robot Gladiators!");
+  
   console.log("Welcome to Robot Gladiators!" );
 
   //Subtract the value of `playerAttack` from the value of `enemyHealth` and use that result to update the value in the `enemyHealth` variable
@@ -30,6 +34,7 @@ var fight = function(enemyName) {
   // Log a resulting message to the console so we know that it worked.
   console.log(enemyNames + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
   );
+  }
   
   }
  
@@ -78,8 +83,10 @@ if (promptFight === "fight" || promptFight === "FIGHT") {
     // if no (false), ask question again by running fight() again
     else {
 
-        for(var i = 0; i < enemyNames.length; i++) {
-            fight(enemyNames[i]);
+        for (var i = 0; i < enemyNames.length; i++) {
+            var pickedEnemyName = enemyNames[i];
+            enemyHealth = 50;            
+            fight(pickedEnemyName);
      // fight();
         }
 }
